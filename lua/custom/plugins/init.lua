@@ -52,4 +52,5 @@ return {
     'nvim-treesitter/nvim-treesitter-context',
     opts = {},
   },
+  'mbbill/undotree',
 }

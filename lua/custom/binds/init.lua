@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>', { desc = 'Open fzf
 vim.keymap.set('n', '<leader>g', ':Git ', { desc = 'Open fugitive' })
 vim.keymap.set('n', '<leader>lx', ':LLPStartPreview<CR>', { desc = 'open latex preview' })
 vim.keymap.set('n', '<leader>t', ':Trouble<CR>', { desc = 'Open Trouble' })
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Open Undo tree'})
 
 vim.keymap.set('n', '<leader>,', ':bp<CR>', { desc = ' swap buffers ' })
 vim.keymap.set('n', '<leader>.', ':bn<CR>', { desc = ' swap buffers ' })
