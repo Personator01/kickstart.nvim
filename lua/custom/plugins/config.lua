@@ -1,3 +1,12 @@
+require('lspconfig').html.setup{
+  filetypes = { "html", "templ", "htmldjango" }
+}
+local pid = vim.fn.getpid()
+local omnisharp_bin = vim.fn.expand("$HOME/opt/omnisharp/OmniSharp")
+require('lspconfig').omnisharp.setup{
+  cmd = {omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
+  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
 require('catppuccin').setup {
   flavour = 'macchiato',
   transparent_background = true,
