@@ -15,6 +15,9 @@ vim.keymap.set('n', '<leader>,', ':bp<CR>', { desc = ' swap buffers ' })
 vim.keymap.set('n', '<leader>.', ':bn<CR>', { desc = ' swap buffers ' })
 vim.keymap.set('n', '<leader>/', ':bd<CR>', { desc = ' close buffer ' })
 
+vim.keymap.set('n', '<c-,>', ':bp<CR>', { desc = 'swap buffers'})
+vim.keymap.set('n', '<c-.>', ':bn<CR>', { desc = 'swap buffers'})
+
 vim.keymap.set('n', '<leader>ha', require('harpoon.mark').add_file, { desc = 'Harpoon add file' })
 vim.keymap.set('n', '<leader>hm', require('harpoon.ui').toggle_quick_menu, { desc = 'Open harpoon menu' })
 vim.keymap.set('n', '<leader>hh', require('harpoon.ui').nav_prev, { desc = 'next harpoon buffer' })
