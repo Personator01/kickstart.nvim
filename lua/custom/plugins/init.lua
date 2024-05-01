@@ -39,7 +39,7 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    opts = {},
+   -- opts = {}, broken atm
   },
   {
     'ThePrimeagen/harpoon',
