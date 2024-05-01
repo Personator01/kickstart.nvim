@@ -19,6 +19,10 @@ require('catppuccin').setup {
     fidget = true
   },
 } 
+--Default comment colors suck
+-- vim.cmd.hi 'Comment term=italic ctermfg=Cyan guifg=#b5560d gui=italic'
+vim.cmd.hi 'Comment term=italic ctermfg=Cyan guifg=#80a0ff gui=italic'
+vim.cmd.hi 'LineNr ctermfg=Cyan guifg=#80a0ff'
 require('fidget').setup {
   notification = {
     window = {
