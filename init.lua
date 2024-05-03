@@ -201,8 +201,8 @@ require('lazy').setup({
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[W]indow', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
       }
       -- visual mode
@@ -363,6 +363,7 @@ require('lazy').setup({
           map('gt', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
           map('gs', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('gf', vim.diagnostic.open_float, '[G]oto [F]loat')
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('gh', vim.lsp.buf.hover, 'Hover Documentation')
@@ -762,4 +763,4 @@ require('lazy').setup({
 
 require 'custom.binds'
 require 'custom.config'
-require 'custom.plugins.config'
+require 'custom.config.plugins'

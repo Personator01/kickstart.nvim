@@ -18,3 +18,6 @@ vim.cmd [[autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 expandtab]
 
 vim.g.foldmethod = 'expr'
 vim.g.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.cmd.hi 'Comment term=italic ctermfg=Cyan guifg=#80a0ff gui=italic'
+vim.cmd.hi 'LineNr ctermfg=Cyan guifg=#80a0ff'
