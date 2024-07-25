@@ -300,7 +300,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>o', builtin.buffers, { desc = 'Search [O]pen'})
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
+      vim.keymap.set('n', '<leader>th', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
@@ -442,6 +442,7 @@ require('lazy').setup({
         cssls = {},
         texlab = {},
         --ocamllsp = {},
+        fsautocomplete = {},
 
         lua_ls = {
           -- cmd = {...},

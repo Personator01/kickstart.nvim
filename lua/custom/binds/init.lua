@@ -4,6 +4,8 @@ vim.keymap.set('i', '}', ']', { desc = 'Swap brackets' })
 vim.keymap.set('i', '[', '{', { desc = 'Swap brackets' })
 vim.keymap.set('i', ']', '}', { desc = 'Swap brackets' })
 
+vim.keymap.set('n', 'cp', 'c/[,)]<CR>', { desc = '[C]hange [P]arameter' })
+
 vim.keymap.set('n', '<leader>wf', ':NERDTreeToggle<CR>', { desc = '[W]indow [F]ile tree' })
 vim.keymap.set('n', '<leader>wo', ':Outline<CR>', { desc = '[W]indow [O]utline' })
 vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>', { desc = 'Open fzf' })
