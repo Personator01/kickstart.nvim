@@ -27,3 +27,17 @@ vim.keymap.set('n', '<leader>h,', require('harpoon.ui').nav_prev, { desc = 'next
 vim.keymap.set('n', '<leader>h.', require('harpoon.ui').nav_next, { desc = 'next harpoon buffer' })
 
 vim.keymap.set('n', '<leader>a', '<c-6>', { desc = 'alternate file' })
+
+-- Defined in init.lua
+-- map('<leader>ld', require('telescope.builtin').lsp_definitions, '[D]efinition')
+-- map('<leader>lr', require('telescope.builtin').lsp_references, '[R]eferences')
+-- map('<leader>li', require('telescope.builtin').lsp_implementations, '[I]mplementation')
+-- map('<leader>lt', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+-- map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
+-- map('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
+-- map('<leader>lf', vim.diagnostic.open_float, '[F]loat')
+-- map('<leader>ln', vim.lsp.buf.rename, 'Re[n]ame')
+-- map('<leader>la', vim.lsp.buf.code_action, 'Code [A]ction')
+-- map('<leader>lh', vim.lsp.buf.hover, '[Hover] Documentation')
+-- map('<leader>lD', vim.lsp.buf.declaration, '[D]eclaration')
+-- <leader>gc -> comment selected lines
