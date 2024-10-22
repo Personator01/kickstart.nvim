@@ -762,6 +762,12 @@ require('lazy').setup({
 -- vim: ts=2 sts=2 sw=2 et
 --
 
+
 require 'custom.binds'
 require 'custom.config'
 require 'custom.config.plugins'
+
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
