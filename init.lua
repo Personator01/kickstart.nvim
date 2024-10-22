@@ -204,6 +204,7 @@ require('lazy').setup({
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]indow', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+        ['<leader>l'] = {name = '[L]SP', _ = 'which_key_ignore'},
       }
       -- visual mode
       require('which-key').register({
@@ -357,17 +358,17 @@ require('lazy').setup({
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('gt', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          map('gs', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-          map('gf', vim.diagnostic.open_float, '[G]oto [F]loat')
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-          map('gh', vim.lsp.buf.hover, 'Hover Documentation')
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('<leader>ld', require('telescope.builtin').lsp_definitions, '[D]efinition')
+          map('<leader>lr', require('telescope.builtin').lsp_references, '[R]eferences')
+          map('<leader>li', require('telescope.builtin').lsp_implementations, '[I]mplementation')
+          map('<leader>lt', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
+          map('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
+          map('<leader>lf', vim.diagnostic.open_float, '[F]loat')
+          map('<leader>ln', vim.lsp.buf.rename, 'Re[n]ame')
+          map('<leader>la', vim.lsp.buf.code_action, 'Code [A]ction')
+          map('<leader>lh', vim.lsp.buf.hover, '[Hover] Documentation')
+          map('<leader>lD', vim.lsp.buf.declaration, '[D]eclaration')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
