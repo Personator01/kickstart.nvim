@@ -21,7 +21,7 @@ return {
     opts = {},
   },
   'ellisonleao/gruvbox.nvim', --necessary to keep lualine from breaking
-  'derekelkins/agda-vim', --agda mode
+  'Personator01/agda-vim', --agda mode
   {
     'nvim-lualine/lualine.nvim',
     requires = {

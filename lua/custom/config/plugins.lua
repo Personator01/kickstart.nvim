@@ -7,6 +7,7 @@ require('lspconfig').omnisharp.setup{
   cmd = {omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+vim.g.agda_extraincpaths = {"/usr/share/agda/lib/stdlib"}
 require('catppuccin').setup({
   flavour = 'macchiato',
   -- flavour = 'amogus',
