@@ -196,20 +196,24 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]indow', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-        ['<leader>l'] = { name = '[L]SP', _ = 'which_key_ignore' },
+      require('which-key').add {
+        {'<leader>c', group = '[C]ode'},
+        {'<leader>c_', hidden = true},
+        {'<leader>d', group = '[D]ocument'},
+        {'<leader>d_', hidden = true},
+        {'<leader>r', group = '[R]ename'},
+        {'<leader>r_', hidden = true},
+        {'<leader>s', group = '[S]earch'},
+        {'<leader>s_', hidden = true},
+        {'<leader>t', group = '[T]oggle'},
+        {'<leader>t_', hidden = true},
+        {'<leader>w', group = '[W]indow'},
+        {'<leader>w_', hidden = true},
+        {'<leader>h', group = 'Git [H]unk'},
+        {'<leader>h_', hidden = true},
+        {'<leader>l', group = '[L]SP'},
+        {'<leader>l_', hidden = true},
       }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
     end,
   },
 
@@ -369,6 +373,22 @@ require('lazy').setup({
           map('<leader>la', vim.lsp.buf.code_action, 'Code [A]ction')
           map('<leader>lh', vim.lsp.buf.hover, '[Hover] Documentation')
           map('<leader>lD', vim.lsp.buf.declaration, '[D]eclaration')
+
+          require('which-key').add(
+            {
+              {"<leader>lr", group="[D]efinition"},
+              {'<leader>lr', group= '[R]eferences'},
+              {'<leader>li', group= '[I]mplementation'},
+              {'<leader>lt', group= 'Type [D]efinition'},
+              {'<leader>ls', group= 'Document [S]ymbols'},
+              {'<leader>lS', group= 'Workspace [S]ymbols'},
+              {'<leader>lf', group= '[F]loat'},
+              {'<leader>ln', group= 'Re[n]ame'},
+              {'<leader>la', group= 'Code [A]ction'},
+              {'<leader>lh', group= '[Hover] Documentation'},
+              {'<leader>lD', group= '[D]eclaration'},
+            }
+          )
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
