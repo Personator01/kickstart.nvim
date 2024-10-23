@@ -35,12 +35,48 @@ require('catppuccin').setup({
 vim.cmd.colorscheme 'catppuccin'
 vim.cmd.hi 'Comment term=italic ctermfg=Cyan guifg=#80a0ff gui=italic'
 vim.cmd.hi 'LineNr ctermfg=Cyan guifg=#80a0ff'
+-- vim.cmd.hi 'SatelliteBar guibg=none'
+-- vim.cmd.hi 'SatelliteBackground guibg=none'
 require('fidget').setup {
   notification = {
     window = {
       winblend = 0,
     },
   }
+}
+require('satellite').setup {
+  current_only = false,
+  excluded_filetypes = {},
+  winblend = 0, 
+  zindex = 40,
+  handlers = {
+    cursor = {
+      enable = true,
+      overlap = true,
+      priority = 0
+    },
+    search = {
+      enable = true,
+    },
+    diagnostic = {
+      enable = true,
+      signs = {'-', '=', '≡'},
+      min_severity = vim.diagnostic.severity.HINT,
+    },
+    gitsigns = {
+      enable = true,
+      signs = { -- can only be a single character (multibyte is okay)
+        add = "│",
+        change = "│",
+        delete = "-",
+      },
+    },
+    marks = {
+      enable = true,
+      key =  'm',
+      show_builtins = false, -- shows the builtin marks like [ ] < >
+    },
+  },
 }
 require('nvim-treesitter.configs').setup {
   modules = {},

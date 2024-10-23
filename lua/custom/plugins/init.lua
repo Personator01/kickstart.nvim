@@ -63,6 +63,9 @@ return {
     'ThePrimeagen/harpoon',
   },
   {
+    'lewis6991/satellite.nvim',
+  },
+  {
     'folke/trouble.nvim',
   },
   'xuhdev/vim-latex-live-preview',
