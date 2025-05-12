@@ -1,8 +1,8 @@
---Swap brackets
-vim.keymap.set('i', '{', '[', { desc = 'Swap brackets' })
-vim.keymap.set('i', '}', ']', { desc = 'Swap brackets' })
-vim.keymap.set('i', '[', '{', { desc = 'Swap brackets' })
-vim.keymap.set('i', ']', '}', { desc = 'Swap brackets' })
+-- --Swap brackets
+-- vim.keymap.set('i', '{', '[', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', '}', ']', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', '[', '{', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', ']', '}', { desc = 'Swap brackets' })
 
 vim.keymap.set('n', 'cp', 'c/[,)]<CR>', { desc = '[C]hange [P]arameter' })
 
@@ -30,6 +30,10 @@ vim.keymap.set('n', '<leader>h1', function () require('harpoon.ui').nav_file(1) 
 vim.keymap.set('n', '<leader>h2', function () require('harpoon.ui').nav_file(2) end)
 vim.keymap.set('n', '<leader>h3', function () require('harpoon.ui').nav_file(3) end)
 vim.keymap.set('n', '<leader>h4', function () require('harpoon.ui').nav_file(4) end)
+vim.keymap.set('n', '<leader>hq', function () require('harpoon.ui').nav_file(1) end)
+vim.keymap.set('n', '<leader>hw', function () require('harpoon.ui').nav_file(2) end)
+vim.keymap.set('n', '<leader>he', function () require('harpoon.ui').nav_file(3) end)
+vim.keymap.set('n', '<leader>hr', function () require('harpoon.ui').nav_file(4) end)
 
 vim.keymap.set('n', '<leader>a', '<c-6>', { desc = 'alternate file' })
 
