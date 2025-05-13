@@ -6,17 +6,20 @@
 
 vim.keymap.set('n', 'cp', 'c/[,)]<CR>', { desc = '[C]hange [P]arameter' })
 
-vim.keymap.set('n', '<leader>wf', ':NERDTreeToggle<CR>', { desc = '[W]indow [F]ile tree' })
+--vim.keymap.set('n', '<leader>wf', ':NERDTreeToggle<CR>', { desc = '[W]indow [F]ile tree' })
+vim.keymap.set('n', '<leader>wf', Snacks.explorer.open, { desc = '[W]indow [F]ile tree' })
+vim.keymap.set('n', '<leader>ws', Snacks.explorer.reveal, { desc = '[W]indow [S]how current file' })
 vim.keymap.set('n', '<leader>wo', ':Outline<CR>', { desc = '[W]indow [O]utline' })
 vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>', { desc = 'Open fzf' })
-vim.keymap.set('n', '<leader>g', ':Git ', { desc = 'Open git' })
+-- vim.keymap.set('n', '<leader>g', ':Git ', { desc = 'Open git' })
+vim.keymap.set('n', '<leader>g', Snacks.lazygit.open, { desc = 'Open git' })
 vim.keymap.set('n', '<leader>wl', ':LLPStartPreview<CR>', { desc = '[W]indow [L]atex preview' })
 vim.keymap.set('n', '<leader>wt', ':TroubleToggle<CR>', { desc = '[W]indow [T]rouble' })
 vim.keymap.set('n', '<leader>wu', ':UndotreeToggle<CR>', { desc = '[W]indow [U]ndo tree'})
 
 vim.keymap.set('n', '<leader>,', ':bp<CR>', { desc = ' swap buffers ' })
 vim.keymap.set('n', '<leader>.', ':bn<CR>', { desc = ' swap buffers ' })
-vim.keymap.set('n', '<leader>/', ':bd<CR>', { desc = ' close buffer ' })
+vim.keymap.set('n', '<leader>/', Snacks.bufdelete.delete, { desc = ' close buffer ' })
 
 vim.keymap.set('n', '<c-,>', ':bp<CR>', { desc = 'swap buffers'})
 vim.keymap.set('n', '<c-.>', ':bn<CR>', { desc = 'swap buffers'})
