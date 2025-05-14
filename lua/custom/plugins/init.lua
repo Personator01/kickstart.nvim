@@ -67,6 +67,8 @@ return {
   },
   {
     'folke/trouble.nvim',
+    opts = {},
+    cmd = "Trouble"
   },
   'xuhdev/vim-latex-live-preview',
   {

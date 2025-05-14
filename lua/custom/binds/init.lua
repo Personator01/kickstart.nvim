@@ -1,8 +1,8 @@
 --Swap brackets
-vim.keymap.set('i', '{', '[', { desc = 'Swap brackets' })
-vim.keymap.set('i', '}', ']', { desc = 'Swap brackets' })
-vim.keymap.set('i', '[', '{', { desc = 'Swap brackets' })
-vim.keymap.set('i', ']', '}', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', '{', '[', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', '}', ']', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', '[', '{', { desc = 'Swap brackets' })
+-- vim.keymap.set('i', ']', '}', { desc = 'Swap brackets' })
 
 vim.keymap.set('n', 'cp', 'c/[,)]<CR>', { desc = '[C]hange [P]arameter' })
 
@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>wo', ':Outline<CR>', { desc = '[W]indow [O]utline' 
 vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>', { desc = 'Open fzf' })
 vim.keymap.set('n', '<leader>g', ':Git ', { desc = 'Open git' })
 vim.keymap.set('n', '<leader>wl', ':LLPStartPreview<CR>', { desc = '[W]indow [L]atex preview' })
-vim.keymap.set('n', '<leader>wt', ':TroubleToggle<CR>', { desc = '[W]indow [T]rouble' })
+vim.keymap.set('n', '<leader>wt', ':Trouble diagnostics toggle<CR>', { desc = '[W]indow [T]rouble' })
 vim.keymap.set('n', '<leader>wu', ':UndotreeToggle<CR>', { desc = '[W]indow [U]ndo tree'})
 
 vim.keymap.set('n', '<leader>,', ':bp<CR>', { desc = ' swap buffers ' })
