@@ -34,7 +34,7 @@ return {
       notifier = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
-      scroll = { enabled = true },
+      scroll = { enabled = false },
       statuscolumn = { enabled = true },
       words = { enabled = true },
     },
@@ -117,18 +117,20 @@ return {
     },
   },
   {
-  "folke/noice.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- add any options here
-  },
-  dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    }
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+            debug = true,
+            sources = {
+                null_ls.builtins.formatting.stylua,
+                --null_ls.builtins.diagnostics.clang_tidy,
+                null_ls.builtins.formatting.clang_format.with({
+            extra_args = { "--style=file" },
+        }),
+            },
+        })
+        vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, {})
+    end,
   }
 }

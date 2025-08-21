@@ -10,10 +10,13 @@ vim.g.Tex_ViewRule_ps = 'evince'
 vim.g.Tex_ViewRule_pdf = 'evince'
 vim.g.livepreview_engine = 'xelatex'
 
-vim.g.shiftwidth = 4
+--fstar detection
+vim.filetype.add({
+  extension = {
+    fst = "fstar" 
+  }
+})
 
-vim.cmd [[autocmd FileType xml setlocal shiftwidth=2 tabstop=2 expandtab]]
-vim.cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 vim.cmd [[autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 expandtab]]
 
 vim.g.foldmethod = 'expr'

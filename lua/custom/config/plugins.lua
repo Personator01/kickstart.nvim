@@ -1,6 +1,18 @@
 require('lspconfig').html.setup{
   filetypes = { "html", "templ", "htmldjango" }
 }
+vim.lsp.config['fstar'] = {
+  cmd = { "fstar", "--lsp"},
+  filetypes = { "fstar", "fst" },
+  root_markers = { '.git' },
+}
+vim.lsp.enable('fstar')
+vim.lsp.enable("clangd")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("cssls")
+vim.lsp.enable("texlab")
+
+
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("/usr/bin/OmniSharp")
 require('lspconfig').omnisharp.setup{
@@ -44,24 +56,24 @@ require('fidget').setup {
     },
   }
 }
-require("noice").setup({
- lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    },
-  },
-  -- you can enable a preset for easier configuration
-  presets = {
-    bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
-    long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = false, -- add a border to hover docs and signature help
-  },
-})
+-- require("noice").setup({
+--  lsp = {
+--     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+--     override = {
+--       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+--       ["vim.lsp.util.stylize_markdown"] = true,
+--       ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+--     },
+--   },
+--   -- you can enable a preset for easier configuration
+--   presets = {
+--     bottom_search = true, -- use a classic bottom cmdline for search
+--     command_palette = true, -- position the cmdline and popupmenu together
+--     long_message_to_split = true, -- long messages will be sent to a split
+--     inc_rename = false, -- enables an input dialog for inc-rename.nvim
+--     lsp_doc_border = false, -- add a border to hover docs and signature help
+--   },
+-- })
 require('satellite').setup {
   current_only = false,
   excluded_filetypes = {},
@@ -96,50 +108,50 @@ require('satellite').setup {
     },
   },
 }
-require('nvim-treesitter.configs').setup {
-  modules = {},
-  sync_install = true,
-  ignore_install = {},
-  auto_install = true,
-  ensure_installed = {
-    'cmake',
-    'comment',
-    'cpp',
-    'c_sharp',
-    'c',
-    'css',
-    'csv',
-    'diff',
-    'dockerfile',
-    'doxygen',
-    'elixir',
-    'fortran',
-    'gitattributes',
-    'gitcommit',
-    'gitignore',
-    'git_rebase',
-    'haskell',
-    'hlsplaylist',
-    'html',
-    'http',
-    'hyprlang',
-    'javascript',
-    'java',
-    'json',
-    'latex',
-    'lua',
-    'make',
-    'nim',
-    'ocaml',
-    'printf',
-    'python',
-    'regex',
-    'rust',
-    'sql',
-    'toml',
-    'typescript',
-  },
-}
+-- require('nvim-treesitter.configs').setup {
+--   modules = {},
+--   sync_install = true,
+--   ignore_install = {},
+--   auto_install = true,
+--   ensure_installed = {
+--     'cmake',
+--     'comment',
+--     'cpp',
+--     'c_sharp',
+--     'c',
+--     'css',
+--     'csv',
+--     'diff',
+--     'dockerfile',
+--     'doxygen',
+--     'elixir',
+--     'fortran',
+--     'gitattributes',
+--     'gitcommit',
+--     'gitignore',
+--     'git_rebase',
+--     'haskell',
+--     'hlsplaylist',
+--     'html',
+--     'http',
+--     'hyprlang',
+--     'javascript',
+--     'java',
+--     'json',
+--     'latex',
+--     'lua',
+--     'make',
+--     'nim',
+--     'ocaml',
+--     'printf',
+--     'python',
+--     'regex',
+--     'rust',
+--     'sql',
+--     'toml',
+--     'typescript',
+--   },
+-- }
 require('lualine').setup {
   options = {
     icons_enabled = true,
