@@ -207,8 +207,8 @@ local TelescopeColor = {
 
   	TelescopePromptPrefix = { bg = "none" },
 	TelescopePromptNormal = { bg = "none" },
-	TelescopeResultsNormal = { bg = "none", fg=colors.subtext0 },
-	TelescopeNormal = { bg = "none" , fg = colors.subtext0 },
+	TelescopeResultsNormal = { bg = "none", fg=colors.text },
+	TelescopeNormal = { bg = "none" , fg = colors.text },
 
   -- 	TelescopePreviewNormal = { bg = colors.mantle },
    	TelescopePromptBorder = { bg = "none", fg = colors.pink },
