@@ -333,9 +333,9 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      --{ 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      --'williamboman/mason-lspconfig.nvim',
+      --'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -450,9 +450,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        java_language_server = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
+        fstar = {},
         rust_analyzer = {},
         kotlin_language_server = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -499,7 +500,6 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
       })
       -- require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
       -- require('mason-lspconfig').setup {
       --   handlers = {
       --     function(server_name)
@@ -520,12 +520,12 @@ require('lazy').setup({
     lazy = false,
     keys = {
       {
-        '<leader>f',
+        '<leader>lm',
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = 'For[m]at buffer',
       },
     },
     opts = {
@@ -685,58 +685,58 @@ require('lazy').setup({
       require('mini.surround').setup()
     end,
   },
-  -- { -- Highlight, edit, and navigate code
-  --   'nvim-treesitter/nvim-treesitter',
-  --   build = ':TSUpdate',
-  --   opts = {
-  --     ensure_installed = {
-  --       'bash',
-  --       'c',
-  --       'html',
-  --       'lua',
-  --       'luadoc',
-  --       'markdown',
-  --       'vim',
-  --       'vimdoc',
-  --       'asm',
-  --       'c_sharp',
-  --       'cpp',
-  --       'css',
-  --       'javascript',
-  --       'latex',
-  --       'ocaml',
-  --       'printf',
-  --       'python',
-  --       'regex',
-  --       'rust',
-  --     },
-  --     -- Autoinstall languages that are not installed
-  --     auto_install = true,
-  --     highlight = {
-  --       enable = true,
-  --       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-  --       --  If you are experiencing weird indenting issues, add the language to
-  --       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-  --       additional_vim_regex_highlighting = { 'ruby' },
-  --     },
-  --     indent = { enable = true, disable = { 'ruby' } },
-  --   },
-  --   config = function(_, opts)
-  --     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-  --
-  --     -- Prefer git instead of curl in order to improve connectivity in some environments
-  --     require('nvim-treesitter.install').prefer_git = true
-  --     ---@diagnostic disable-next-line: missing-fields
-  --     require('nvim-treesitter.configs').setup(opts)
-  --
-  --     -- There are additional nvim-treesitter modules that you can use to interact
-  --     -- with nvim-treesitter. You should go explore a few and see what interests you:
-  --     --
-  --     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  --     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  --   end,
-  -- },
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    opts = {
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'asm',
+        'c_sharp',
+        'cpp',
+        'css',
+        'javascript',
+        'latex',
+        'ocaml',
+        'printf',
+        'python',
+        'regex',
+        'rust',
+      },
+      -- Autoinstall languages that are not installed
+      auto_install = true,
+      highlight = {
+        enable = true,
+        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
+        --  If you are experiencing weird indenting issues, add the language to
+        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
+        additional_vim_regex_highlighting = { 'ruby' },
+      },
+      indent = { enable = true, disable = { 'ruby', 'cpp'} },
+    },
+    config = function(_, opts)
+      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
+      -- Prefer git instead of curl in order to improve connectivity in some environments
+      require('nvim-treesitter.install').prefer_git = true
+      ---@diagnostic disable-next-line: missing-fields
+      require('nvim-treesitter.configs').setup(opts)
+
+      -- There are additional nvim-treesitter modules that you can use to interact
+      -- with nvim-treesitter. You should go explore a few and see what interests you:
+      --
+      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    end,
+  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -750,7 +750,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 

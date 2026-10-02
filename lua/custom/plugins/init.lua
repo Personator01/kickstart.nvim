@@ -35,6 +35,7 @@ return {
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = false },
+      terminal = { enabled = false },
       statuscolumn = { enabled = true },
       words = { enabled = true },
     },

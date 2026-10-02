@@ -7,19 +7,23 @@ vim.lsp.config['fstar'] = {
   root_markers = { '.git' },
 }
 vim.lsp.enable('fstar')
-vim.lsp.enable("clangd")
-vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("cssls")
 vim.lsp.enable("texlab")
 
-
+require('lspconfig').texlab.setup{}
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("/usr/bin/OmniSharp")
 require('lspconfig').omnisharp.setup{
   cmd = {omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+require('lspconfig').clangd.setup{}
+require('lspconfig').rust_analyzer.setup{}
+require('lspconfig').pyright.setup{}
+require('lspconfig').clangd.setup{
+}
 vim.g.agda_extraincpaths = {"/usr/share/agda/lib/stdlib"}
+require('trouble').setup()
 require('catppuccin').setup({
   flavour = 'macchiato',
   -- flavour = 'amogus',
@@ -42,6 +46,7 @@ require('catppuccin').setup({
     fidget = true
   },
 })
+
 --Default comment colors suck
 -- vim.cmd.hi 'Comment term=italic ctermfg=Cyan guifg=#b5560d gui=italic'
 vim.cmd.colorscheme 'catppuccin'
@@ -193,3 +198,28 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {},
 }
+-- telescope color config
+local colors = require("catppuccin.palettes").get_palette()
+local TelescopeColor = {
+  	TelescopeMatching = { fg = colors.red },
+  	TelescopeSelection = { fg = colors.flamingo, bg = "none", bold = true },
+  	TelescopeSelectionCaret = { fg = colors.flamingo, bg = "none", bold = true },
+
+  	TelescopePromptPrefix = { bg = "none" },
+	TelescopePromptNormal = { bg = "none" },
+	TelescopeResultsNormal = { bg = "none", fg=colors.subtext0 },
+	TelescopeNormal = { bg = "none" , fg = colors.subtext0 },
+
+  -- 	TelescopePreviewNormal = { bg = colors.mantle },
+   	TelescopePromptBorder = { bg = "none", fg = colors.pink },
+   	TelescopeResultsBorder = { bg = "none", fg = colors.pink },
+   	TelescopePreviewBorder = { bg = "none", fg = colors.pink },
+   	TelescopePromptTitle = { bg = colors.pink, fg = "#193f8a", bold = true},
+   	TelescopeResultsTitle = { bg = colors.pink, fg = "#193f8a", bold = true },
+	TelescopeTitle = { bg = colors.lavender, fg = "#193f8a", bold = true },
+  -- 	TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+}
+
+for hl, col in pairs(TelescopeColor) do
+	vim.api.nvim_set_hl(0, hl, col)
+end
