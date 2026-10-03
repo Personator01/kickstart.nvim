@@ -26,7 +26,7 @@ return {
       bigfile = { enabled = true },
       bufdelete = { enabled = true },
       dashboard = { enabled = true },
-      dim = { enabled = false },
+      dim = { enabled = true },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },

@@ -1,27 +1,19 @@
-require('lspconfig').html.setup{
+vim.lsp.config("html", {
   filetypes = { "html", "templ", "htmldjango" }
-}
+})
 vim.lsp.config['fstar'] = {
   cmd = { "fstar", "--lsp"},
   filetypes = { "fstar", "fst" },
   root_markers = { '.git' },
 }
-vim.lsp.enable('fstar')
-vim.lsp.enable("cssls")
-vim.lsp.enable("texlab")
 
-require('lspconfig').texlab.setup{}
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("/usr/bin/OmniSharp")
-require('lspconfig').omnisharp.setup{
+vim.lsp.config("omnisharp", {
   cmd = {omnisharp_bin, "--languageserver", "--hostpid", tostring(pid) },
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require('lspconfig').clangd.setup{}
-require('lspconfig').rust_analyzer.setup{}
-require('lspconfig').pyright.setup{}
-require('lspconfig').clangd.setup{
-}
+})
+vim.lsp.enable({'clangd', 'rust_analyzer', 'pyright', 'omnisharp', 'texlab', 'fstar', 'cssls', 'html'})
 vim.g.agda_extraincpaths = {"/usr/share/agda/lib/stdlib"}
 require('trouble').setup()
 require('catppuccin').setup({
@@ -160,7 +152,6 @@ require('satellite').setup {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'catppuccin',
     -- theme = 'catppuccin',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },

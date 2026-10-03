@@ -40,6 +40,7 @@ vim.keymap.set('n', '<leader>hr', function () require('harpoon.ui').nav_file(4) 
 
 vim.keymap.set('n', '<leader>a', '<c-6>', { desc = 'alternate file' })
 
+vim.keymap.set('n', '<CR>', 'zo<CR>', { desc = 'down and open fold' })
 -- Defined in init.lua
 -- map('<leader>ld', require('telescope.builtin').lsp_definitions, '[D]efinition')
 -- map('<leader>lr', require('telescope.builtin').lsp_references, '[R]eferences')
