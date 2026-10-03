@@ -27,7 +27,6 @@ end
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'setup treesitter folds',
   callback = function (s)
-    vim.api.nvim_echo({{"not h autocmd"}}, false, {})
     setup_folds()
     local fname = vim.api.nvim_buf_get_name(0)
     if string.match(fname, "%.hpp$") or string.match(fname, '%.h$') then 
@@ -36,6 +35,11 @@ vim.api.nvim_create_autocmd('FileType', {
       vim.opt.foldlevel = 1
     end
     vim.opt.foldnestmax = 2
+    --overrides could fix problem of folding too much
+    -- vim.treesitter.query.set("cpp", "folds", [[
+    -- (function_definition (block) @fold)
+    -- (class_definition (block) @fold)
+    -- ]])
   end
 })
 
