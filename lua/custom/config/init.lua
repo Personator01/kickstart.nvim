@@ -19,13 +19,23 @@ vim.filetype.add({
 
 vim.cmd [[autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 expandtab]]
 
+local setup_folds = function (s)
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+end
+
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'setup treesitter folds',
   callback = function (s)
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    --vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt.foldlevel = 1
+    vim.api.nvim_echo({{"not h autocmd"}}, false, {})
+    setup_folds()
+    local fname = vim.api.nvim_buf_get_name(0)
+    if string.match(fname, "%.hpp$") or string.match(fname, '%.h$') then 
+      vim.opt.foldlevel = 20
+    else
+      vim.opt.foldlevel = 1
+    end
+    vim.opt.foldnestmax = 2
   end
 })
 
